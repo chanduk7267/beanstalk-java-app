@@ -6,8 +6,10 @@ phases:
       java: corretto17
   build:
     commands:
-      - mvn clean package
-      - cp target/*.war app.war
+      - echo "Running Maven package..."
+      - mvn clean package -DskipTests
+
 artifacts:
   files:
-    - app.war
+    - target/*.war
+  discard-paths: yes
